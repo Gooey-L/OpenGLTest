@@ -5,8 +5,10 @@ add_executable(OpenGLTest main.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
+find_package(GLEW REQUIRED)
 target_link_libraries(OpenGLTest
-  glfw
   OpenGL::GL
+  glfw
+  GLEW::GLEW
 )
 

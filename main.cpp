@@ -1,4 +1,6 @@
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
 #include <iostream>
 
 #define SCR_WIDTH 640
@@ -12,7 +14,7 @@ int main() {
   GLFWwindow* window;
 
   if(!glfwInit()) { 
-    std::cout << "Error initialising glew\n";
+    std::cout << "Error initialising glfw\n";
     return -1;
   }
 
@@ -24,6 +26,11 @@ int main() {
   }
 
   glfwMakeContextCurrent(window);
+
+  if(glewInit() != GLEW_OK) {
+    std::cout << "Error initialising glew\n";
+    return -1;
+  }
 
   while(!glfwWindowShouldClose(window)) {
     glClear(GL_COLOR_BUFFER_BIT);
